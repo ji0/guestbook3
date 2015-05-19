@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,14 +27,10 @@ public class GuestBookController {
 		List<GuestBookVO> list = guestBookDao.fetchList();
 		model.addAttribute("list", list);
 
-		return "/views/index.jsp";
+		return "index";
 	}
 
-	@RequestMapping("/deleteform")
-	public String form() {
-		return "views/deleteform.jsp";
-
-	}
+	
 
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public String insert(
@@ -50,19 +48,18 @@ public class GuestBookController {
 		return "redirect:/index";
 	}
 	
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	// 링크는 겟방식
+	public String deleteForm(@RequestParam Long no) {
 	
-	@RequestMapping("/delete")
-	public String delete() {
-		
+		return "deleteform";
+	}
 
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+	public String delete(@RequestParam Long no, @RequestParam String password) {
 		
-		/*System.out.println(no);
-		
-		Long lNo = Long.parseLong(no);
-
-		guestBookDao.delete(lNo, password);
-		*/
-		
+		guestBookDao.delete(no, password);
+				
 		return "redirect:/index";
 
 	}

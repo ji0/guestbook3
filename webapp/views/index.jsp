@@ -42,7 +42,7 @@
 				<td>[ ${status.count } ]</td>
 				<td>${vo.name }</td>
 				<td>${vo.reg_date}</td>
-				<td><a href="/guestbook3/deleteform?no='${no}'">삭제</a></td>
+				<td><a href="/guestbook3/delete?no=${vo.no}">삭제</a></td>
 			</tr>
 			<tr>
 				<td colspan=4>${vo.message }</td>

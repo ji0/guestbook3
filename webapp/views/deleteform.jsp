@@ -11,13 +11,14 @@
 </head>
 <body>
 	<form method="post" action="/guestbook3/delete">
+	<input type="hidden" name="no" value = "${param.no}">
 		<table>
 			<tr>
 				<td>비밀번호</td>
 				<td><input type="password" name="password"></td>
 				<td><input type="submit" value="확인"></td>
 
-				<td><a href="/guestbook3/index?no=${no}">메인으로 돌아가기</a></td>
+				<td><a href="/guestbook3/index">메인으로 돌아가기</a></td>
 			</tr>
 		</table>
 	</form>

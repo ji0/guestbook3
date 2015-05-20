@@ -14,7 +14,7 @@
 	<input type="hidden" name="no" value = "${param.no}">
 		<table>
 			<tr>
-				<td>비밀번호</td>
+				<td>비밀번호당당</td>
 				<td><input type="password" name="password"></td>
 				<td><input type="submit" value="확인"></td>
 

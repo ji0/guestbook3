@@ -50,7 +50,7 @@ public class GuestBookController {
 	
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	// 링크는 겟방식
-	public String deleteForm(@RequestParam Long no) {
+	public String deleteForm(@RequestParam  Long no) {
 	
 		return "deleteform";
 	}
